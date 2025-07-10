@@ -39,16 +39,18 @@ async def live_loop(args):
     exchange = build_exchange(args.exchange)
 
     # Optionally generate strategy params from research
-    params = {}
+    params = {"spread_bps": 10, "inventory_clip": 0.2, "hold_time": 60}
     if args.research:
         papers = gather_research("crypto market making", min_results=120)
-        params = generate_from_research(papers)
+        params.update(generate_from_research(papers))
         print("[Research] Generated params:", params)
-    
-    strategy = BookrunnerStrategy(exchange=exchange)
-    if "spread_bps" in params:
-        global SPREAD_BPS  # refer to constant in strategies.bookrunner
-        SPREAD_BPS = params["spread_bps"]
+
+    strategy = BookrunnerStrategy(
+        exchange=exchange,
+        spread_bps=params["spread_bps"],
+        inventory_clip=params["inventory_clip"],
+        hold_time=params["hold_time"],
+    )
 
     symbol = args.symbol
     while True:

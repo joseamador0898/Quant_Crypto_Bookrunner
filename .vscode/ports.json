@@ -1,0 +1,14 @@
+{
+  "ports": [
+    {
+      "port": 34021,
+      "onAutoForward": "openPreview",
+      "label": "Streamlit Dashboard"
+    },
+    {
+      "port": 40783,
+      "onAutoForward": "ignore",
+      "label": "Alt Dashboard Port"
+    }
+  ]
+}
