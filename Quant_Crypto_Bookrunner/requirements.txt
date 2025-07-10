@@ -1,0 +1,11 @@
+ccxt
+requests
+websockets
+pandas
+numpy
+scikit-learn
+beautifulsoup4
+arxiv
+openai
+matplotlib
+python-dotenv
