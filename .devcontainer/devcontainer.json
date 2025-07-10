@@ -1,0 +1,10 @@
+{
+  "name": "Quant Crypto Bookrunner",
+  "forwardPorts": [8501],
+  "portsAttributes": {
+    "8501": {
+      "label": "Streamlit Dashboard",
+      "onAutoForward": "openPreview"
+    }
+  }
+}
